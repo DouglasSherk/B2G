@@ -74,6 +74,10 @@ echo MAKE_FLAGS=-j$((CORE_COUNT + 2)) > .tmp-config
 echo GECKO_OBJDIR=$PWD/objdir-gecko >> .tmp-config
 echo DEVICE_NAME=$1 >> .tmp-config
 
+if [ -n "$LIGHTSABER" ]; then
+  echo LIGHTSABER=1 >> .tmp-config
+fi
+
 case "$1" in
 "galaxy-s2")
 	echo DEVICE=galaxys2 >> .tmp-config &&
